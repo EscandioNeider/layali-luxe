@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="geral.css">
+    <script src="produtos.js"></script>
+    <title>🎇 Home</title>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="img/1.svg" alt="Logo Alya" width="250">
+
+        <div class="header-2">
+            <nav>
+                <a href="sobre-nos.html" target="_blank">Sobre Nós</a>
+                <a href="index.html">Todos os Produtos</a>
+                <a href="#" onclick="filtrarProdutos('acessorios')">Acessorios</a>
+                <a href="#" onclick="filtrarProdutos('conjuntos')">Conjuntos</a>
+                <a href="#" onclick="filtrarProdutos('pijamas-infantis')">Pijamas Infantis</a>
+                <a href="#" onclick="filtrarProdutos('pijamas-adultos')">Pijamas Adultos</a>
+                <a href="#" onclick="filtrarProdutos('perfumes')">Perfumes</a>
+                <a href="#" id="meuCarrinho">Meu Carrinho</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="Listacarrinho" id="teste" style="display: none;">
+        <h3 class="tiCarrinho">Meu Carrinho</h3>
+        <br><br>
+        <ul id="itensCarrinho"></ul>
+        <p class="subCarrinho">Total do Carrinho: <span id="total"></span></p>
+        <button class="botaoLista" onclick="RealizarCompra()">Comprar Todos os Produtos</button>
+        <button class="botaoLista" onclick="EsvaziarCarrinho()"> Limpar Carrinho</button>
+    </div>
+
+    <!-- Container com função que muda os preços -->
+    <div class="container-consulta">
+        <h2 class="text-center">Consulta de Frete</h2>
+        <input type="text" id="cep" class="form-control mb-2" placeholder="Digite seu CEP.">
+        <br>
+        <button class="botao-pesquisa" onclick="consultarCEP()">Consultar</button>
+        <p id="resultado-cep" class="mt-3"></p>
+    </div>
+
+    <div class="banner"><img src="img/banner-1.png" alt=""></div>
+
+    <!-- Produtos -->
+    <div class="container mt-4">
+        <div class="grid" id="produtos-container">
+            <!-- Fila: Anéis Solitários -->
+            <!-- Produto 1 -->
+            <div class="box-produto" data-dolar="10" id="1" categoria="acessorios">
+                <img src="img/anel-1.png" alt="....">
+                <div class="content">
+
+                    <h3>Anel delicado com joia azul</h3>
+                    <p>Preço: $10</p>
+                    <p>Em Real: <span class="valor-real">...</span></p>
+                    <p>Frete: <span class="valor-frete">...</span></p>
+                    <p>Preço Total: <span class="valor-total">...</span></p>
+
+                    <button class="botao-carrinho" onclick="colocarNoCarrinho(1)">
+                        <svg viewBox="0 0 16 16" class="bi bi-cart2" height="16" width="16"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                                stroke="currentColor" stroke-width="1.0"></path>
+                        </svg>
+                        <span>Adicionar ao Carrinho</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produto 2 -->
+            <div class="box-produto" data-dolar="15" id="2" categoria="acessorios">
+                <img src="img/anel-2.jpg" alt="Anel n°2">
+                <div class="content">
+                    <h3>Anel prateado cravejado</h3>
+                    <p>Preço: $15</p>
+                    <p>Em Real: <span class="valor-real">...</span></p>
+                    <p>Frete: <span class="valor-frete">...</span></p>
+                    <p>Preço Total: <span class="valor-total">...</span></p>
+
+                    <button class="botao-carrinho" onclick="colocarNoCarrinho(2)">
+                        <svg viewBox="0 0 16 16" class="bi bi-cart2" height="16" width="16"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                                stroke="currentColor" stroke-width="1.0"></path>
+                        </svg>
+                        <span>Adicionar ao Carrinho</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Produto 3 -->
+            <div class="box-produto" data-dolar="10" id="3" categoria="acessorios">
+                <img src="img/anel-3.png" alt="....">
+                <div class="content">
+                    <h3>Anel de luxo com joia ciano</h3>
+                    <p>Preço: $10</p>
+                    <p>Em Real: <span class="valor-real">...</span></p>
+                    <p>Frete: <span class="valor-frete">...</span></p>
+                    <p>Preço Total: <span class="valor-total">...</span></p>
+
+                    <button class="botao-carrinho" onclick="colocarNoCarrinho(3)">
+                        <svg viewBox="0 0 16 16" class="bi bi-cart2" height="16" width="16"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                                stroke="currentColor" stroke-width="1.0"></path>
+                        </svg>
+                        <span>Adicionar ao Carrinho</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produto 4 -->
+            <div class="box-produto" data-dolar="30" id="4" categoria="conjuntos">
+                <img src="img/joia-conjunto-1.jpg" alt="....">
+                <div class="content">
+                    <h3>Conjunto de joias de luxo</h3>
+                    <p>Preço: $30</p>
+                    <p>Em Real: <span class="valor-real">...</span></p>
+                    <p>Frete: <span class="valor-frete">...</span></p>
+                    <p>Preço Total: <span class="valor-total">...</span></p>
+
+                    <button class="botao-carrinho" onclick="colocarNoCarrinho(4)">
+                        <svg viewBox="0 0 16 16" class="bi bi-cart2" height="16" width="16"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                                stroke="currentColor" stroke-width="1.0"></path>
+                        </svg>
+                        <span>Adicionar ao Carrinho</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produto 5 -->
+            <div class="box-produto" data-dolar="30" id="5" categoria="acessorios">
+                <img src="img/joia-conjunto-2.jpg" alt="....">
+                <div class="content">
+                    <h3>Bracelete de ouro</h3>
+                    <p>Preço: $30</p>
+                    <p>Em Real: <span class="valor-real">...</span></p>
+                    <p>Frete: <span class="valor-frete">...</span></p>
+                    <p>Preço Total: <span class="valor-total">...</span></p>
+
+                    <button class="botao-carrinho" onclick="colocarNoCarrinho(5)">
+                        <svg viewBox="0 0 16 16" class="bi bi-cart2" height="16" width="16"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                                stroke="currentColor" stroke-width="1.0"></path>
+                        </svg>
+                        <span>Adicionar ao Carrinho</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produto 6 -->
+            <div class="box-produto" data-dolar="25" id="6" categoria="conjuntos">
+                <img src="img/joias-conjunto-4.jpg" alt="....">
+                <div class="content">
+                    <h3>Pulseira caprichada com joias verdes</h3>
+                    <p>Preço: $25</p>
+                    <p>Em Real: <span class="valor-real">...</span></p>
+                    <p>Frete: <span class="valor-frete">...</span></p>
+                    <p>Preço Total: <span class="valor-total">...</span></p>
+
+                    <button class="botao-carrinho" onclick="colocarNoCarrinho(6)">
+                        <svg viewBox="0 0 16 16" class="bi bi-cart2" height="16" width="16"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                                stroke="currentColor" stroke-width="1.0"></path>
+                        </svg>
+                        <span>Adicionar ao Carrinho</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produto 7 -->
+            <div class="box-produto" data-dolar="35" id="7" categoria="conjuntos">
+                <img src="img/joia-conjunto-3.jpg" alt="....">
+                <div class="content">
+                    <h3>Conjunto dourado com joias verdes</h3>
+                    <p>Preço: $35</p>
+                    <p>Em Real: <span class="valor-real">...</span></p>
+                    <p>Frete: <span class="valor-frete">...</span></p>
+                    <p>Preço Total: <span class="valor-total">...</span></p>
+
+                    <button class="botao-carrinho" onclick="colocarNoCarrinho(7)">
+                        <svg viewBox="0 0 16 16" class="bi bi-cart2" height="16" width="16"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                                stroke="currentColor" stroke-width="1.0"></path>
+                        </svg>
+                        <span>Adicionar ao Carrinho</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produto 8 -->
+            <div class="box-produto" data-dolar="35" id="8" categoria="conjuntos">
+                <img src="img/joia-conjunto-5.jpg" alt="....">
+                <div class="content">
+                    <h3>Conjunto de luxo com joias azuis</h3>
+                    <p>Preço: $35</p>
+                    <p>Em Real: <span class="valor-real">...</span></p>
+                    <p>Frete: <span class="valor-frete">...</span></p>
+                    <p>Preço Total: <span class="valor-total">...</span></p>
+
+                    <button class="botao-carrinho" onclick="colocarNoCarrinho(8)">
+                        <svg viewBox="0 0 16 16" class="bi bi-cart2" height="16" width="16"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                                stroke="currentColor" stroke-width="1.0"></path>
+                        </svg>
+                        <span>Adicionar ao Carrinho</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="banner"><img src="img/banner-2.png" alt=""></div>
+
+        <div class="grid" id="produtos-container">
+            <!-- Fila: Roupas Infantis-->
+            <!-- Produto 9 -->
+            <div class="box-produto" data-dolar="45" id="9" categoria="pijamas-infantis">
+                <img src="img/conjunto-bebe-bege.jpeg" alt="....">
+                <div class="content">
+                    <h3>Body bege tradicional</h3>
+                    <p>Preço: $45</p>
+                    <p>Em Real: <span class="valor-real">...</span></p>
+                    <p>Frete: <span class="valor-frete">...</span></p>
+                    <p>Preço Total: <span class="valor-total">...</span></p>
+
+                    <button class="botao-carrinho" onclick="colocarNoCarrinho(9)">
+                        <svg viewBox="0 0 16 16" class="bi bi-cart2" height="16" width="16"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                                stroke="currentColor" stroke-width="1.0"></path>
+                        </svg>
+                        <span>Adicionar ao Carrinho</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produto 10 -->
+            <div class="box-produto" data-dolar="40" id="10" categoria="pijamas-infantis">
+                <img src="img/conjunto-baby-trad-1.png.jpeg" alt="....">
+                <div class="content">
+                    <h3>Conjunto formal baby</h3>
+                    <p>Preço: $40</p>
+                    <p>Em Real: <span class="valor-real">...</span></p>
+                    <p>Frete: <span class="valor-frete">...</span></p>
+                    <p>Preço Total: <span class="valor-total">...</span></p>
+
+                    <button class="botao-carrinho" onclick="colocarNoCarrinho(10)">
+                        <svg viewBox="0 0 16 16" class="bi bi-cart2" height="16" width="16"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                                stroke="currentColor" stroke-width="1.0"></path>
+                        </svg>
+                        <span>Adicionar ao Carrinho</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produto 11 -->
+            <div class="box-produto" data-dolar="45" id="11" categoria="pijamas-infantis">
+                <img src="img/conjunto-baby-trad-2.png.jpeg" alt="....">
+                <div class="content">
+                    <h3>Conjunto formal infantil preto</h3>
+                    <p>Produto A</p>
+                    <p>Preço: $45</p>
+                    <p>Em Real: <span class="valor-real">...</span></p>
+                    <p>Frete: <span class="valor-frete">...</span></p>
+                    <p>Preço Total: <span class="valor-total">...</span></p>
+
+                    <button class="botao-carrinho" onclick="colocarNoCarrinho(11)">
+                        <svg viewBox="0 0 16 16" class="bi bi-cart2" height="16" width="16"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                                stroke="currentColor" stroke-width="1.0"></path>
+                        </svg>
+                        <span>Adicionar ao Carrinho</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produto 12 -->
+            <div class="box-produto" data-dolar="45" id="12" categoria="pijamas-infantis">
+                <img src="img/conjunto-baby-trad-3.png.jpeg" alt="....">
+                <div class="content">
+                    <h3>Conjunto formal infantil cinza</h3>
+                    <p>Preço: $45</p>
+                    <p>Em Real: <span class="valor-real">...</span></p>
+                    <p>Frete: <span class="valor-frete">...</span></p>
+                    <p>Preço Total: <span class="valor-total">...</span></p>
+
+                    <button class="botao-carrinho" onclick="colocarNoCarrinho(12)">
+                        <svg viewBox="0 0 16 16" class="bi bi-cart2" height="16" width="16"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                                stroke="currentColor" stroke-width="1.0"></path>
+                        </svg>
+                        <span>Adicionar ao Carrinho</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produto 13 -->
+            <div class="box-produto" data-dolar="50" id="13" categoria="pijamas-infantis">
+                <img src="img/macacao-bebe-pijama.webp" alt="....">
+                <div class="content">
+                    <h3>Pijama baby carrinhos</h3>
+                    <p>Preço: $50</p>
+                    <p>Em Real: <span class="valor-real">...</span></p>
+                    <p>Frete: <span class="valor-frete">...</span></p>
+                    <p>Preço Total: <span class="valor-total">...</span></p>
+
+                    <button class="botao-carrinho" onclick="colocarNoCarrinho(13)">
+                        <svg viewBox="0 0 16 16" class="bi bi-cart2" height="16" width="16"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                                stroke="currentColor" stroke-width="1.0"></path>
+                        </svg>
+                        <span>Adicionar ao Carrinho</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produto 14 -->
+            <div class="box-produto" data-dolar="50" id="14" categoria="pijamas-infantis">
+                <img src="img/macacao-bebe-pijama-1.webp" alt="....">
+                <div class="content">
+                    <h3>>Pijama baby animais</h3>
+                    <p>Preço: $50</p>
+                    <p>Em Real: <span class="valor-real">...</span></p>
+                    <p>Frete: <span class="valor-frete">...</span></p>
+                    <p>Preço Total: <span class="valor-total">...</span></p>
+
+                    <button class="botao-carrinho" onclick="colocarNoCarrinho(14)">
+                        <svg viewBox="0 0 16 16" class="bi bi-cart2" height="16" width="16"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                                stroke="currentColor" stroke-width="1.0"></path>
+                        </svg>
+                        <span>Adicionar ao Carrinho</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produto 15 -->
+            <div class="box-produto" data-dolar="65" id="15" categoria="pijamas-infantis">
+                <img src="img/kit-pijama-baby-ursinho.png" alt="....">
+                <div class="content">
+                    <h3>Kit 4 pijamas baby ursinho</h3>
+                    <p>Preço: $65</p>
+                    <p>Em Real: <span class="valor-real">...</span></p>
+                    <p>Frete: <span class="valor-frete">...</span></p>
+                    <p>Preço Total: <span class="valor-total">...</span></p>
+
+                    <button class="botao-carrinho" onclick="colocarNoCarrinho(15)">
+                        <svg viewBox="0 0 16 16" class="bi bi-cart2" height="16" width="16"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                                stroke="currentColor" stroke-width="1.0"></path>
+                        </svg>
+                        <span>Adicionar ao Carrinho</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produto 16 -->
+            <div class="box-produto" data-dolar="58" id="16" categoria="pijamas-infantis">
+                <img src="img/kit-pijama-baby-rosa.png" alt="....">
+                <div class="content">
+                    <h3>Kit 3 pijamas baby fofinho</h3>
+                    <p>Preço: $58</p>
+                    <p>Em Real: <span class="valor-real">...</span></p>
+                    <p>Frete: <span class="valor-frete">...</span></p>
+                    <p>Preço Total: <span class="valor-total">...</span></p>
+
+                    <button class="botao-carrinho" onclick="colocarNoCarrinho(16)">
+                        <svg viewBox="0 0 16 16" class="bi bi-cart2" height="16" width="16"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0 2.5A.5.5 0 00 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                                stroke="currentColor" stroke-width="1.0"></path>
+                        </svg>
+                        <span>Adicionar ao Carrinho</span>
+                    </button>
+                </div>
+            </div>
+
+            <!--- Fila: Pijamas Adultos -->
+
+            <!---Produto 17 -->
+            <div class="box-produto" data-dolar="55" id="17" categoria="pijamas-adultos">
+                <img src="img/camisa-de-dormir-masc-azul.png" alt="....">
+                <div class="content">
+                    <h3>Camisa de dormir masculina azul escuro</h3>
+                    <p>Preço: $55</p>
+                    <p>Em Real: <span class="valor-real">...</span></p>
+                    <p>Frete: <span class="valor-frete">...</span></p>
+                    <p>Preço Total: <span class="valor-total">...</span></p>
+
+                    <button class="botao-carrinho" onclick="colocarNoCarrinho(17)">
+                        <svg viewBox="0 0 16 16" class="bi bi-cart2" height="16" width="16"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                                stroke="currentColor" stroke-width="1.0"></path>
+                        </svg>
+                        <span>Adicionar ao Carrinho</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produto 18 -->
+            <div class="box-produto" data-dolar="55" id="18" categoria="pijamas-adultos">
+                <img src="img/camisa-de-dormir-masc-cinza.png" alt="....">
+                <div class="content">
+                    <h3>Camisa de dormir masculina cinza</h3>
+                    <p>Preço: $55</p>
+                    <p>Em Real: <span class="valor-real">...</span></p>
+                    <p>Frete: <span class="valor-frete">...</span></p>
+                    <p>Preço Total: <span class="valor-total">...</span></p>
+
+                    <button class="botao-carrinho" onclick="colocarNoCarrinho(18)">
+                        <svg viewBox="0 0 16 16" class="bi bi-cart2" height="16" width="16"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                                stroke="currentColor" stroke-width="1.0"></path>
+                        </svg>
+                        <span>Adicionar ao Carrinho</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produto 19 -->
+            <div class="box-produto" data-dolar="55" id="19" categoria="pijamas-adultos">
+                <img src="img/pijama-fem-2.png" alt="....">
+                <div class="content">
+                    <h3>Pijama feminino pink</h3>
+                    <p>Preço: $55</p>
+                    <p>Em Real: <span class="valor-real">...</span></p>
+                    <p>Frete: <span class="valor-frete">...</span></p>
+                    <p>Preço Total: <span class="valor-total">...</span></p>
+
+                    <button class="botao-carrinho" onclick="colocarNoCarrinho(19)">
+                        <svg viewBox="0 0 16 16" class="bi bi-cart2" height="16" width="16"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                                stroke="currentColor" stroke-width="1.0"></path>
+                        </svg>
+                        <span>Adicionar ao Carrinho</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produto 20 -->
+            <div class="box-produto" data-dolar="55" id="20" categoria="pijamas-adultos">
+                <img src="img/pijama-fem-1.png" alt="....">
+                <div class="content">
+                    <h3>Pijama feminino com touca bege</h3>
+                    <p>Preço: $55</p>
+                    <p>Em Real: <span class="valor-real">...</span></p>
+                    <p>Frete: <span class="valor-frete">...</span></p>
+                    <p>Preço Total: <span class="valor-total">...</span></p>
+
+                    <button class="botao-carrinho" onclick="colocarNoCarrinho(20)">
+                        <svg viewBox="0 0 16 16" class="bi bi-cart2" height="16" width="16"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                                stroke="currentColor" stroke-width="1.0"></path>
+                        </svg>
+                        <span>Adicionar ao Carrinho</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produto 21 -->
+            <div class="box-produto" data-dolar="65" id="21" categoria="pijamas-infantis">
+                <img src="img/body-verde.jpeg" alt="....">
+                <div class="content">
+                    <h3>Body verde quentinho</h3>
+                    <p>Preço: $65</p>
+                    <p>Em Real: <span class="valor-real">...</span></p>
+                    <p>Frete: <span class="valor-frete">...</span></p>
+                    <p>Preço Total: <span class="valor-total">...</span></p>
+
+                    <button class="botao-carrinho" onclick="colocarNoCarrinho(21)">
+                        <svg viewBox="0 0 16 16" class="bi bi-cart2" height="16" width="16"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                                stroke="currentColor" stroke-width="1.0"></path>
+                        </svg>
+                        <span>Adicionar ao Carrinho</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produto 22 -->
+            <div class="box-produto" data-dolar="65" id="22" categoria="pijamas-infantis">
+                <img src="img/body-vermelho.png" alt="....">
+                <div class="content">
+                    <h3>Body vermelho quentinho</h3>
+                    <p>Preço: $65</p>
+                    <p>Em Real: <span class="valor-real">...</span></p>
+                    <p>Frete: <span class="valor-frete">...</span></p>
+                    <p>Preço Total: <span class="valor-total">...</span></p>
+
+                    <button class="botao-carrinho" onclick="colocarNoCarrinho(22)">
+                        <svg viewBox="0 0 16 16" class="bi bi-cart2" height="16" width="16"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                                stroke="currentColor" stroke-width="1.0"></path>
+                        </svg>
+                        <span>Adicionar ao Carrinho</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produto 23 -->
+            <div class="box-produto" data-dolar="70" id="23" categoria="pijamas-infantis">
+                <img src="img/conjunto-kids-cacto.png" alt="....">
+                <div class="content">
+                    <h3>Pijama infantil cacto</h3>
+                    <p>Preço: $70</p>
+                    <p>Em Real: <span class="valor-real">...</span></p>
+                    <p>Frete: <span class="valor-frete">...</span></p>
+                    <p>Preço Total: <span class="valor-total">...</span></p>
+
+                    <button class="botao-carrinho" onclick="colocarNoCarrinho(23)">
+                        <svg viewBox="0 0 16 16" class="bi bi-cart2" height="16" width="16"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                                stroke="currentColor" stroke-width="1.0"></path>
+                        </svg>
+                        <span>Adicionar ao Carrinho</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produto 24 -->
+            <div class="box-produto" data-dolar="78" id="24" categoria="pijamas-infantis">
+                <img src="img/conjunto-kids-trad.png" alt="....">
+                <div class="content">
+                    <h3>Conjunto kids tradicional</h3>
+                    <p>Preço: $78</p>
+                    <p>Em Real: <span class="valor-real">...</span></p>
+                    <p>Frete: <span class="valor-frete">...</span></p>
+                    <p>Preço Total: <span class="valor-total">...</span></p>
+
+                    <button class="botao-carrinho" onclick="colocarNoCarrinho(24)">
+                        <svg viewBox="0 0 16 16" class="bi bi-cart2" height="16" width="16"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0 2.5A.5.5 0 00 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                                stroke="currentColor" stroke-width="1.0"></path>
+                        </svg>
+                        <span>Adicionar ao Carrinho</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="banner"><img src="img/banner-3.png" alt=""></div>
+
+        <div class="grid" id="produtos-container">
+            <!-- Fila: Cosmeticos -->
+            <!-- Produto 25 -->
+            <div class="box-produto" data-dolar="115" id="25" categoria="perfumes">
+                <img src="img/perfume-feminino-1.jpg" alt="....">
+                <div class="content">
+                    <h3>Fakkar Lataffa 100ml</h3>
+                    <p>Preço: $115</p>
+                    <p>Em Real: <span class="valor-real">...</span></p>
+                    <p>Frete: <span class="valor-frete">...</span></p>
+                    <p>Preço Total: <span class="valor-total">...</span></p>
+
+                    <button class="botao-carrinho" onclick="colocarNoCarrinho(25)">
+                        <svg viewBox="0 0 16 16" class="bi bi-cart2" height="16" width="16"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                                stroke="currentColor" stroke-width="1.0"></path>
+                        </svg>
+                        <span>Adicionar ao Carrinho</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produto 26 -->
+            <div class="box-produto" data-dolar="118" id="26" categoria="perfumes">
+                <img src="img/perfume-feminino-2.png" alt="....">
+                <div class="content">
+                    <h3>Durrat Al Aroos 100ml</h3>
+                    <p>Preço: $118</p>
+                    <p>Em Real: <span class="valor-real">...</span></p>
+                    <p>Frete: <span class="valor-frete">...</span></p>
+                    <p>Preço Total: <span class="valor-total">...</span></p>
+
+                    <button class="botao-carrinho" onclick="colocarNoCarrinho(26)">
+                        <svg viewBox="0 0 16 16" class="bi bi-cart2" height="16" width="16"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                                stroke="currentColor" stroke-width="1.0"></path>
+                        </svg>
+                        <span>Adicionar ao Carrinho</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produto 27 -->
+            <div class="box-produto" data-dolar="215" id="27" categoria="perfumes">
+                <img src="img/perfume-masculino-1.jpg" alt="....">
+                <div class="content">
+                    <h3>Al Wataniah Eqaab 100ml</h3>
+                    <p>Preço: $215</p>
+                    <p>Em Real: <span class="valor-real">...</span></p>
+                    <p>Frete: <span class="valor-frete">...</span></p>
+                    <p>Preço Total: <span class="valor-total">...</span></p>
+
+                    <button class="botao-carrinho" onclick="colocarNoCarrinho(27)">
+                        <svg viewBox="0 0 16 16" class="bi bi-cart2" height="16" width="16"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                                stroke="currentColor" stroke-width="1.0"></path>
+                        </svg>
+                        <span>Adicionar ao Carrinho</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produto 28 -->
+            <div class="box-produto" data-dolar="185" id="28" categoria="perfumes">
+                <img src="img/perfume-masculino-2.png" alt="....">
+                <div class="content">
+                    <h3>Asad Zanzibar 100ml</h3>
+                    <p>Preço: $185</p>
+                    <p>Em Real: <span class="valor-real">...</span></p>
+                    <p>Frete: <span class="valor-frete">...</span></p>
+                    <p>Preço Total: <span class="valor-total">...</span></p>
+
+                    <button class="botao-carrinho" onclick="colocarNoCarrinho(28)">
+                        <svg viewBox="0 0 16 16" class="bi bi-cart2" height="16" width="16"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                                stroke="currentColor" stroke-width="1.0"></path>
+                        </svg>
+                        <span>Adicionar ao Carrinho</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produto 29 -->
+            <div class="box-produto" data-dolar="210" id="29" categoria="perfumes">
+                <img src="img/perfume-feminino-3.png" alt="....">
+                <div class="content">
+                    <h3>Shagaf Af Ward 100ml</h3>
+                    <p>Preço: $210</p>
+                    <p>Em Real: <span class="valor-real">...</span></p>
+                    <p>Frete: <span class="valor-frete">...</span></p>
+                    <p>Preço Total: <span class="valor-total">...</span></p>
+
+                    <button class="botao-carrinho" onclick="colocarNoCarrinho(29)">
+                        <svg viewBox="0 0 16 16" class="bi bi-cart2" height="16" width="16"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                                stroke="currentColor" stroke-width="1.0"></path>
+                        </svg>
+                        <span>Adicionar ao Carrinho</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produto 30 -->
+            <div class="box-produto" data-dolar="235" id="30" categoria="perfumes">
+                <img src="img/perfume-feminino-4.png" alt="....">
+                <div class="content">
+                    <h3>Yara Moi de Lataffa 100ml</h3>
+                    <p>Preço: $235</p>
+                    <p>Em Real: <span class="valor-real">...</span></p>
+                    <p>Frete: <span class="valor-frete">...</span></p>
+                    <p>Preço Total: <span class="valor-total">...</span></p>
+
+                    <button class="botao-carrinho" onclick="colocarNoCarrinho(30)">
+                        <svg viewBox="0 0 16 16" class="bi bi-cart2" height="16" width="16"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                                stroke="currentColor" stroke-width="1.0"></path>
+                        </svg>
+                        <span>Adicionar ao Carrinho</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produto 31 -->
+            <div class="box-produto" data-dolar="255" id="31" categoria="perfumes">
+                <img src="img/perfume-masculino-3.png" alt="....">
+                <div class="content">
+                    <h3>Kenz Al Malik 100ml</h3>
+                    <p>Preço: $255</p>
+                    <p>Em Real: <span class="valor-real">...</span></p>
+                    <p>Frete: <span class="valor-frete">...</span></p>
+                    <p>Preço Total: <span class="valor-total">...</span></p>
+
+                    <button class="botao-carrinho" onclick="colocarNoCarrinho(31)">
+                        <svg viewBox="0 0 16 16" class="bi bi-cart2" height="16" width="16"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                                stroke="currentColor" stroke-width="1.0"></path>
+                        </svg>
+                        <span>Adicionar ao Carrinho</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produto 32 -->
+            <div class="box-produto" data-dolar="265" id="32" categoria="perfumes">
+                <img src="img/perfume-masculino-4.png" alt="....">
+                <div class="content">
+                    <h3>Wataniah Thahaani 100ml</h3>
+                    <p>Preço: $265</p>
+                    <p>Em Real: <span class="valor-real">...</span></p>
+                    <p>Frete: <span class="valor-frete">...</span></p>
+                    <p>Preço Total: <span class="valor-total">...</span></p>
+
+                    <button class="botao-carrinho" onclick="colocarNoCarrinho(32)">
+                        <svg viewBox="0 0 16 16" class="bi bi-cart2" height="16" width="16"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0 2.5A.5.5 0 00 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"
+                                stroke="currentColor" stroke-width="1.0"></path>
+                        </svg>
+                        <span>Adicionar ao Carrinho</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="geral.js"></script>
+</body>
+
+</html>
