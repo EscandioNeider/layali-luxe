@@ -46,19 +46,19 @@ header img {
 }
 
 /* PESQUISA DE CEP */
-#cep,
+#cep, 
 #cep:enabled {
-    background-color: #c79d437a;
-    color: #c79d43;
+    background-color: #efd49a7a;
+    color: #815800;
     width: 25rem;
     height: 2rem;
     border: 0.5px solid #c2b69c;
     border-radius: 25px;
     border-radius: 5px;
+    text-align: center;
 }
-
 #cep::placeholder {
-    color: #7e6122;
+    color: #614304;
     text-align: center;
 }
 
@@ -108,7 +108,26 @@ header img {
     flex-direction: column;
 }
 
-.Listacarrinho h3 {
+.ListaFrete{
+    position: absolute;
+    top: 470px;
+    right: 780px;
+    background-color: #d4c291;
+    border: 1px solid #bb994fad;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 1000;
+    width: 300px;
+    max-height: 350px;
+    overflow-y: auto;
+    transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.Listacarrinho h3, .ListaFrete h3 {
     margin: 0;
     font-size: 1.5em;
     color: #8f5f05;
@@ -118,7 +137,7 @@ header img {
 .subCarrinho {
     margin: 10px 0;
     font-size: 1em;
-    color: #c5a04f;
+    color: #b1872e;
     text-align: center;
 }
 
@@ -140,6 +159,45 @@ header img {
     background-color:#bb994fad;
 }
 
+@media (max-width: 768px) {
+    .Listacarrinho {
+        position: absolute;
+        top: 0px;
+        right: 3px;
+        background-color: #d4c291;
+        border: 1px solid #bb994fad;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 10px;
+        z-index: 1000;
+        width: 400px;
+        max-height: 200px;
+        overflow-y: auto;
+        display: none;
+        transition: opacity 0.3s ease;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .ListaFrete{
+        position: absolute;
+        top: 0px;
+        right: 20px;
+        background-color: #d4c291;
+        border: 1px solid #bb994fad;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        width: 350px;
+        height: 200px;
+        transition: opacity 0.3s ease;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    
+    
+}
 /* GRID E PRODUTOS */
 .grid {
     display: grid;

@@ -27,6 +27,7 @@
         </div>
     </header>
 
+    <!-- Div oculta - Carrinho -->
     <div class="Listacarrinho" id="teste" style="display: none;">
         <h3 class="tiCarrinho">Meu Carrinho</h3>
         <br><br>
@@ -42,7 +43,20 @@
         <input type="text" id="cep" class="form-control mb-2" placeholder="Digite seu CEP.">
         <br>
         <button class="botao-pesquisa" onclick="consultarCEP()">Consultar</button>
+        <br>
+        <button class="botao-pesquisa" id="meuFrete" >Valores do Frete</button>
         <p id="resultado-cep" class="mt-3"></p>
+    </div>
+
+    <!-- Div Oculat - Frete -->
+    <div class="ListaFrete" id="tabFrete" style="display: none;">
+        <h3>Valores:</h3>
+        <br>
+        <p><strong>Sudeste: </strong>R$750</p>
+        <p><strong>Sul: </strong>R$900</p>
+        <p><strong>Nordeste: </strong>R$900</p>
+        <p><strong>Norte: </strong>R$1000</p>
+        <p><strong>Centro-Oeste: </strong>R$1000</p>
     </div>
 
     <div class="banner"><img src="img/banner-1.png" alt=""></div>
@@ -770,6 +784,7 @@
         </div>
     </div>
 
+    <!-- Footer -->
     <footer>
         <div id="organizar">
             <div class="itens-footer">

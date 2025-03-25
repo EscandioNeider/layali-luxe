@@ -1,3 +1,4 @@
+// Conversão de Dólar pra real
 let cotacaoDolar = 0;
 
 async function converterDolarParaReal() {
@@ -20,6 +21,7 @@ converterDolarParaReal();
 
 var carrinhoAutorizado = false
 
+// Consulta de CEP
 async function consultarCEP() {
     let cep = document.getElementById('cep').value.trim();
     let resultadoCep = document.getElementById('resultado-cep');
@@ -45,6 +47,7 @@ async function consultarCEP() {
     }
 }
 
+// Tabela de fretes
 function calcularFrete(cep) {
     let frete = 0;
 
@@ -71,7 +74,7 @@ function calcularFrete(cep) {
     });
 }
 
-
+// Filtro de produtos por categorias
 function filtrarProdutos(categoria) {
     // Seleciona todos os produtos
     const produtos = document.querySelectorAll('.box-produto');
@@ -92,9 +95,18 @@ function filtrarProdutos(categoria) {
     });
 }
 
+// Aparecer div do frete
+document.addEventListener("DOMContentLoaded", function () {
+    carregarCarrinho();
+
+    document.getElementById("meuFrete").addEventListener("click", function () {
+        let carrinhoDiv = document.getElementById("tabFrete");
+        carrinhoDiv.style.display = (carrinhoDiv.style.display === "none") ? "block" : "none";
+    });
+});
 
 
-// ----TESTES DO CARRINHO---- //
+// Aparecer a div do carrinho
 document.addEventListener("DOMContentLoaded", function () {
     carregarCarrinho();
 
